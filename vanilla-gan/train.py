@@ -145,8 +145,8 @@ Generator Loss: {total_g_loss / len(data_loader):.4f}
         if (epoch + 1) % args.interval == 0:
             save_image(img_grid, os.path.join(args.sample_dir, f'fake_images_{epoch + 1}.png'))
     # Save the model checkpoints.
-    torch.save(G.state_dict(), os.path.join(args.ckpt_dir, 'G.ckpt'))
-    torch.save(D.state_dict(), os.path.join(args.ckpt_dir, 'D.ckpt'))
+    torch.save(G.state_dict(), os.path.join(args.ckpt_dir, args.dataset, 'G.ckpt'))
+    torch.save(D.state_dict(), os.path.join(args.ckpt_dir, args.dataset, 'D.ckpt'))
 
 
 def main() -> None:
