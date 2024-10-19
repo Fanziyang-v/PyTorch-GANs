@@ -143,7 +143,7 @@ Generator Loss: {total_g_loss / len(data_loader):.4f}
         img_grid = make_grid(denormalize(fake_images), nrow=8, padding=2)
         writer.add_image('Fake Images', img_grid, epoch + 1)
         if (epoch + 1) % args.interval == 0:
-            save_image(img_grid, os.path.join(args.sample_dir, f'fake_images_{epoch + 1}.png'))
+            save_image(img_grid, os.path.join(args.sample_dir, args.dataset, f'fake_images_{epoch + 1}.png'))
     # Save the model checkpoints.
     torch.save(G.state_dict(), os.path.join(args.ckpt_dir, args.dataset, 'G.ckpt'))
     torch.save(D.state_dict(), os.path.join(args.ckpt_dir, args.dataset, 'D.ckpt'))
